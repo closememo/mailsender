@@ -1,10 +1,14 @@
 
 spring:
+  config:
+    activate:
+      on-profile: "!real"
+
   mail:
-    host: ${SMTP-HOST}
+    host: ${DEV_SMTP_HOST}
     port: 587
-    username: ${MAIL-USERNAME}
-    password: ${MAIL-PASSWORD}
+    username: ${DEV_MAIL_USERNAME}
+    password: ${DEV_MAIL_PASSWORD}
     properties:
       mail:
         smtp:
