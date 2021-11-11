@@ -1,0 +1,13 @@
+
+spring:
+  config:
+    activate:
+      on-profile: "!real"
+
+springdoc:
+  packages-to-scan: com.closememo.mailsender.controller
+  paths-to-match: /mail-sender/**
+  swagger-ui:
+    path: /mail-sender/swagger-ui.html
+  api-docs:
+    path: /mail-sender/api-docs

@@ -1,0 +1,18 @@
+
+spring:
+  config:
+    activate:
+      on-profile: local
+
+file:
+  workspace: 'C:/workspace'
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+file:
+  workspace: '/home/deployer/workspace'
