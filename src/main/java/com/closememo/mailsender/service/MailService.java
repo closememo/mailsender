@@ -10,11 +10,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.mail.MessagingException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
 public class MailService {
+
+  private static final String DEFAULT_TITLE = "(제목없음)";
 
   private final FileHandler fileHandler;
   private final MailClient mailClient;
@@ -53,10 +56,12 @@ public class MailService {
   }
 
   private static PostDTO checkAndAdjustPost(PostDTO post) {
-    String replacedTitle = post.getTitle().replaceAll("[\\\\/:*?\"<>|]", "□");
+    String title = StringUtils.isBlank(post.getTitle())
+        ? DEFAULT_TITLE
+        : post.getTitle().replaceAll("[\\\\/:*?\"<>|]", "□");
 
     return new PostDTO(
-        replacedTitle,
+        title,
         post.getContent(),
         post.getTags(),
         post.getCreatedAt()
