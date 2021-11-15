@@ -12,7 +12,7 @@ file:
 spring:
   config:
     activate:
-      on-profile: dev
+      on-profile: "!local"
 
 file:
   workspace: '/home/deployer/workspace'
