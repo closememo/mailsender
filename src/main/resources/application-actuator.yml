@@ -1,0 +1,19 @@
+
+management:
+  server:
+    port: 9113
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+
+management:
+  server:
+    port: 9115

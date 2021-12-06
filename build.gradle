@@ -11,8 +11,10 @@ repositories {
 }
 
 dependencies {
+    implementation 'io.micrometer:micrometer-registry-prometheus'
     implementation 'org.apache.commons:commons-collections4:4.4'
     implementation 'org.springdoc:springdoc-openapi-ui:1.5.12'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'

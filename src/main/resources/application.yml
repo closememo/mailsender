@@ -4,7 +4,7 @@ spring:
     name: mailsender
   profiles:
     active: local
-    include: mail, file, openapi, secret
+    include: actuator, mail, file, openapi, secret
 
 server:
   port: 10083
