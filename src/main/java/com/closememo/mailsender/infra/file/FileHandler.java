@@ -29,6 +29,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class FileHandler {
 
+  private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
   private final String workspace;
 
   public FileHandler(FileProperties properties) {
@@ -55,7 +57,7 @@ public class FileHandler {
         }
 
         if (i > 1000) {
-          throw new RuntimeException("aa");
+          throw new RuntimeException("Too many iterations");
         }
       }
     }
@@ -116,7 +118,7 @@ public class FileHandler {
       stringBuilder.append(createTagString(tags));
     }
     stringBuilder.append("\n\n");
-    stringBuilder.append(createdAt);
+    stringBuilder.append(createdAt.format(DATE_FORMAT));
 
     return new PostInfo(createdAt,
         new ByteArrayInputStream(stringBuilder.toString().getBytes(StandardCharsets.UTF_8)));

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MailClient {
 
-  private JavaMailSender mailSender;
+  private final JavaMailSender mailSender;
 
   private static final String SENDER = "클로즈메모<closememo@gmail.com>";
 

@@ -17,7 +17,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class MailService {
 
-  private static final String DEFAULT_TITLE = "(제목없음)";
+  private static final String DEFAULT_POST_TITLE = "(제목없음)";
+  private static final String MAIL_TITLE = "클로즈메모 메일전송";
+  private static final String MAIL_CONTENT = "메모를 첨부하여 메일로 전송합니다.";
 
   private final FileHandler fileHandler;
   private final MailClient mailClient;
@@ -41,7 +43,7 @@ public class MailService {
       return;
     }
 
-    MailDTO mail = new MailDTO(email, "[테스트] 제목", "[데스트] 본문", compressed);
+    MailDTO mail = new MailDTO(email, MAIL_TITLE, MAIL_CONTENT, compressed);
 
     try {
       mailClient.send(mail);
@@ -57,7 +59,7 @@ public class MailService {
 
   private static PostDTO checkAndAdjustPost(PostDTO post) {
     String title = StringUtils.isBlank(post.getTitle())
-        ? DEFAULT_TITLE
+        ? DEFAULT_POST_TITLE
         : post.getTitle().replaceAll("[\\\\/:*?\"<>|]", "□");
 
     return new PostDTO(
