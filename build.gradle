@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.1'
+    id 'org.springframework.boot' version '2.6.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
@@ -10,13 +10,10 @@ repositories {
     mavenCentral()
 }
 
-// log4j2 취약점 대응
-ext['log4j2.version'] = '2.15.0'
-
 dependencies {
     implementation 'io.micrometer:micrometer-registry-prometheus'
     implementation 'org.apache.commons:commons-collections4:4.4'
-    implementation 'org.springdoc:springdoc-openapi-ui:1.5.12'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.4'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.springframework.boot:spring-boot-starter-security'
